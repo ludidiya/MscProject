@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 ChIP-seq data analysis | Project Log</title>
+  <meta name="description" content="This log records the progress of the summer project." />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 ChIP-seq data analysis | Project Log" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This log records the progress of the summer project." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 ChIP-seq data analysis | Project Log" />
+  
+  <meta name="twitter:description" content="This log records the progress of the summer project." />
+  
+
+<meta name="author" content="LING Ludi" />
+
+
+<meta name="date" content="2020-05-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ulicutrun-data-analysis.html"/>
+
+<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Project</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#transcriptional-factors"><i class="fa fa-check"></i><b>2.1</b> Transcriptional factors</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#chip-seq"><i class="fa fa-check"></i><b>2.2</b> ChIP-seq</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#ulicutrun"><i class="fa fa-check"></i><b>2.3</b> uliCUT&amp;RUN</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="download-data.html"><a href="download-data.html"><i class="fa fa-check"></i><b>3</b> Download Data</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="download-data.html"><a href="download-data.html#chip-seq-1"><i class="fa fa-check"></i><b>3.1</b> ChIP-seq</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="download-data.html"><a href="download-data.html#samfile"><i class="fa fa-check"></i><b>3.1.1</b> samFile</a></li>
+<li class="chapter" data-level="3.1.2" data-path="download-data.html"><a href="download-data.html#download"><i class="fa fa-check"></i><b>3.1.2</b> download</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="download-data.html"><a href="download-data.html#ulicutrun-1"><i class="fa fa-check"></i><b>3.2</b> uliCUT&amp;RUN</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="download-data.html"><a href="download-data.html#samfile-1"><i class="fa fa-check"></i><b>3.2.1</b> samFile</a></li>
+<li class="chapter" data-level="3.2.2" data-path="download-data.html"><a href="download-data.html#download-1"><i class="fa fa-check"></i><b>3.2.2</b> download</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ulicutrun-data-analysis.html"><a href="ulicutrun-data-analysis.html"><i class="fa fa-check"></i><b>4</b> uliCUT&amp;RUN data analysis</a></li>
+<li class="chapter" data-level="5" data-path="chip-seq-data-analysis.html"><a href="chip-seq-data-analysis.html"><i class="fa fa-check"></i><b>5</b> ChIP-seq data analysis</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chip-seq-data-analysis.html"><a href="chip-seq-data-analysis.html#qc"><i class="fa fa-check"></i><b>5.1</b> QC</a></li>
+<li class="chapter" data-level="5.2" data-path="chip-seq-data-analysis.html"><a href="chip-seq-data-analysis.html#fastq-file"><i class="fa fa-check"></i><b>5.2</b> Fastq file</a></li>
+<li class="chapter" data-level="5.3" data-path="chip-seq-data-analysis.html"><a href="chip-seq-data-analysis.html#mm10"><i class="fa fa-check"></i><b>5.3</b> mm10</a></li>
+<li class="chapter" data-level="5.4" data-path="chip-seq-data-analysis.html"><a href="chip-seq-data-analysis.html#bowtie2-alignment"><i class="fa fa-check"></i><b>5.4</b> bowtie2 alignment</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Project Log</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chip-seq-data-analysis" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> ChIP-seq data analysis</h1>
+<div id="qc" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> QC</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="chip-seq-data-analysis.html#cb1-1"></a><span class="bu">cd</span> ~/project/cutrun/0_RawData/blast</span>
+<span id="cb1-2"><a href="chip-seq-data-analysis.html#cb1-2"></a><span class="fu">mkdir</span> QC</span>
+<span id="cb1-3"><a href="chip-seq-data-analysis.html#cb1-3"></a><span class="bu">cd</span> QC </span>
+<span id="cb1-4"><a href="chip-seq-data-analysis.html#cb1-4"></a><span class="fu">nohup</span> fastqc -t 8 ../*.fastq.gz -o QC/ <span class="kw">&amp;</span></span></code></pre></div>
+</div>
+<div id="fastq-file" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Fastq file</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="chip-seq-data-analysis.html#cb2-1"></a><span class="fu">zcat</span> Brg1KD_1_1.fastq.gz <span class="kw">|</span> <span class="fu">head</span></span>
+<span id="cb2-2"><a href="chip-seq-data-analysis.html#cb2-2"></a><span class="co"># @SRR6782542.1 NS500730:396:H5TCHBGX3:1:11101:9911:1052/1</span></span>
+<span id="cb2-3"><a href="chip-seq-data-analysis.html#cb2-3"></a><span class="co"># TNCCAGCCATGCTCGGTTATC</span></span>
+<span id="cb2-4"><a href="chip-seq-data-analysis.html#cb2-4"></a><span class="co"># +</span></span>
+<span id="cb2-5"><a href="chip-seq-data-analysis.html#cb2-5"></a><span class="co"># A#EEEEEEEEEEEEEEEEEEE</span></span></code></pre></div>
+<ul>
+<li>the fisrt line
+<ul>
+<li>start with <code>@</code></li>
+<li><code>SRR6782542.1</code></li>
+<li><code>NS500730:396:H5TCHBGX3</code>: sequencer number</li>
+<li><code>1</code>: lane</li>
+<li><code>11101</code>: tail coordinate</li>
+<li><code>9911</code>: X coordinates in tail</li>
+<li><code>1052</code>: Y coordinates in tail</li>
+<li><code>/1</code> or <code>/2</code>: paired end reads</li>
+</ul></li>
+<li>the second line: sequence ‘ATCGN’</li>
+<li>the third line: +</li>
+<li>the fourth line: Quality information</li>
+</ul>
+</div>
+<div id="mm10" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> mm10</h2>
+<p>Downloading genome annotation from iGenomes</p>
+<p>The iGenomes project provides a considerable number of genomic in a form that can readily installed for use with aligners such as Bowtie</p>
+<p><a href="https://support.illumina.com/sequencing/sequencing_software/igenome.html" class="uri">https://support.illumina.com/sequencing/sequencing_software/igenome.html</a></p>
+<p>In this case however, genomic data formatted for use with the Bowtie 2 aligner can be downloaded from the Bowtie site and then unpacked.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="chip-seq-data-analysis.html#cb3-1"></a><span class="bu">cd</span> ~/project</span>
+<span id="cb3-2"><a href="chip-seq-data-analysis.html#cb3-2"></a><span class="fu">mkdir</span> indexes</span>
+<span id="cb3-3"><a href="chip-seq-data-analysis.html#cb3-3"></a><span class="fu">mkdir</span> indexes/mm10</span>
+<span id="cb3-4"><a href="chip-seq-data-analysis.html#cb3-4"></a><span class="bu">cd</span> indexes/mm10</span>
+<span id="cb3-5"><a href="chip-seq-data-analysis.html#cb3-5"></a><span class="fu">wget</span> ftp://ftp.ccb.jhu.edu/pub/data/bowtie2_indexes/mm10.zip</span>
+<span id="cb3-6"><a href="chip-seq-data-analysis.html#cb3-6"></a><span class="fu">unzip</span> mm10.zip</span></code></pre></div>
+</div>
+<div id="bowtie2-alignment" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> bowtie2 alignment</h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ulicutrun-data-analysis.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-ChIP-Seq.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Download Data | Project Log</title>
+  <meta name="description" content="This log records the progress of the summer project." />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Download Data | Project Log" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This log records the progress of the summer project." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Download Data | Project Log" />
+  
+  <meta name="twitter:description" content="This log records the progress of the summer project." />
+  
+
+<meta name="author" content="LING Ludi" />
+
+
+<meta name="date" content="2020-05-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="ulicutrun-data-analysis.html"/>
+<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Project</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#transcriptional-factors"><i class="fa fa-check"></i><b>2.1</b> Transcriptional factors</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#chip-seq"><i class="fa fa-check"></i><b>2.2</b> ChIP-seq</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#ulicutrun"><i class="fa fa-check"></i><b>2.3</b> uliCUT&amp;RUN</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="download-data.html"><a href="download-data.html"><i class="fa fa-check"></i><b>3</b> Download Data</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="download-data.html"><a href="download-data.html#chip-seq-1"><i class="fa fa-check"></i><b>3.1</b> ChIP-seq</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="download-data.html"><a href="download-data.html#samfile"><i class="fa fa-check"></i><b>3.1.1</b> samFile</a></li>
+<li class="chapter" data-level="3.1.2" data-path="download-data.html"><a href="download-data.html#download"><i class="fa fa-check"></i><b>3.1.2</b> download</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="download-data.html"><a href="download-data.html#ulicutrun-1"><i class="fa fa-check"></i><b>3.2</b> uliCUT&amp;RUN</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="download-data.html"><a href="download-data.html#samfile-1"><i class="fa fa-check"></i><b>3.2.1</b> samFile</a></li>
+<li class="chapter" data-level="3.2.2" data-path="download-data.html"><a href="download-data.html#download-1"><i class="fa fa-check"></i><b>3.2.2</b> download</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ulicutrun-data-analysis.html"><a href="ulicutrun-data-analysis.html"><i class="fa fa-check"></i><b>4</b> uliCUT&amp;RUN data analysis</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ulicutrun-data-analysis.html"><a href="ulicutrun-data-analysis.html#qc"><i class="fa fa-check"></i><b>4.1</b> QC</a></li>
+<li class="chapter" data-level="4.2" data-path="ulicutrun-data-analysis.html"><a href="ulicutrun-data-analysis.html#fastq-file"><i class="fa fa-check"></i><b>4.2</b> Fastq file</a></li>
+<li class="chapter" data-level="4.3" data-path="ulicutrun-data-analysis.html"><a href="ulicutrun-data-analysis.html#mm10"><i class="fa fa-check"></i><b>4.3</b> mm10</a></li>
+<li class="chapter" data-level="4.4" data-path="ulicutrun-data-analysis.html"><a href="ulicutrun-data-analysis.html#bowtie2-alignment"><i class="fa fa-check"></i><b>4.4</b> bowtie2 alignment</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Project Log</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="download-data" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Download Data</h1>
+<div id="chip-seq-1" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> ChIP-seq</h2>
+<p>Chen, X., et al. (2008). <a href="https://www.sciencedirect.com/science/article/pii/S009286740800617X">Integration of external signaling pathways with the core transcriptional network
+in embryonic stem cells</a>. Cell, 133(6), 1106-1117.</p>
+<div id="samfile" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> samFile</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="download-data.html#cb1-1"></a><span class="fu">cat</span> <span class="op">&lt;&lt;END</span>  <span class="op">&gt;</span> <span class="ex">samFile.txt</span></span>
+<span id="cb1-2"><a href="download-data.html#cb1-2"></a>SRR002004   ES_Nanog_1  ES_Nanog</span>
+<span id="cb1-3"><a href="download-data.html#cb1-3"></a>SRR002005   ES_Nanog_2  ES_Nanog</span>
+<span id="cb1-4"><a href="download-data.html#cb1-4"></a>SRR002011   ES_Nanog_3  ES_Nanog</span>
+<span id="cb1-5"><a href="download-data.html#cb1-5"></a>SRR002010   ES_Nanog_4  ES_Nanog</span>
+<span id="cb1-6"><a href="download-data.html#cb1-6"></a>SRR002009   ES_Nanog_5  ES_Nanog</span>
+<span id="cb1-7"><a href="download-data.html#cb1-7"></a>SRR002008   ES_Nanog_6  ES_Nanog</span>
+<span id="cb1-8"><a href="download-data.html#cb1-8"></a>SRR002007   ES_Nanog_7  ES_Nanog</span>
+<span id="cb1-9"><a href="download-data.html#cb1-9"></a>SRR002006   ES_Nanog_8  ES_Nanog</span>
+<span id="cb1-10"><a href="download-data.html#cb1-10"></a>SRR002012   ES_Oct4_1   ES_Oct4</span>
+<span id="cb1-11"><a href="download-data.html#cb1-11"></a>SRR002013   ES_Oct4_2   ES_Oct4</span>
+<span id="cb1-12"><a href="download-data.html#cb1-12"></a>SRR002014   ES_Oct4_3   ES_Oct4</span>
+<span id="cb1-13"><a href="download-data.html#cb1-13"></a>SRR002015   ES_Oct4_4   ES_Oct4</span>
+<span id="cb1-14"><a href="download-data.html#cb1-14"></a>SRR002025   ES_Sox2_1   ES_Sox2</span>
+<span id="cb1-15"><a href="download-data.html#cb1-15"></a>SRR002024   ES_Sox2_2   ES_Sox2</span>
+<span id="cb1-16"><a href="download-data.html#cb1-16"></a>SRR002023   ES_Sox2_3   ES_Sox2</span>
+<span id="cb1-17"><a href="download-data.html#cb1-17"></a>SRR002026   ES_Sox2_4   ES_Sox2</span>
+<span id="cb1-18"><a href="download-data.html#cb1-18"></a>SRR002021   ES_Smad1_1  ES_Smad1</span>
+<span id="cb1-19"><a href="download-data.html#cb1-19"></a>SRR002020   ES_Smad1_2  ES_Smad1</span>
+<span id="cb1-20"><a href="download-data.html#cb1-20"></a>SRR002022   ES_Smad1_3  ES_Smad1</span>
+<span id="cb1-21"><a href="download-data.html#cb1-21"></a>SRR001991   ES_E2f1_1   ES_E2f1</span>
+<span id="cb1-22"><a href="download-data.html#cb1-22"></a>SRR001990   ES_E2f1_2   ES_E2f1</span>
+<span id="cb1-23"><a href="download-data.html#cb1-23"></a>SRR001989   ES_E2f1_3   ES_E2f1</span>
+<span id="cb1-24"><a href="download-data.html#cb1-24"></a>SRR001988   ES_E2f1_4   ES_E2f1</span>
+<span id="cb1-25"><a href="download-data.html#cb1-25"></a>SRR002034   ES_Tcfcp2I1_1   ES_Tcfcp2I1</span>
+<span id="cb1-26"><a href="download-data.html#cb1-26"></a>SRR002033   ES_Tcfcp2I1_2   ES_Tcfcp2I1</span>
+<span id="cb1-27"><a href="download-data.html#cb1-27"></a>SRR002032   ES_Tcfcp2I1_3   ES_Tcfcp2I1</span>
+<span id="cb1-28"><a href="download-data.html#cb1-28"></a>SRR002031   ES_Tcfcp2I1_4   ES_Tcfcp2I1</span>
+<span id="cb1-29"><a href="download-data.html#cb1-29"></a>SRR001987   ES_CTCF_1   ES_CTCF</span>
+<span id="cb1-30"><a href="download-data.html#cb1-30"></a>SRR001986   ES_CTCF_2   ES_CTCF</span>
+<span id="cb1-31"><a href="download-data.html#cb1-31"></a>SRR001985   ES_CTCF_3   ES_CTCF</span>
+<span id="cb1-32"><a href="download-data.html#cb1-32"></a>SRR002035   ES_Zfx_1    ES_Zfx</span>
+<span id="cb1-33"><a href="download-data.html#cb1-33"></a>SRR002036   ES_Zfx_2    ES_Zfx</span>
+<span id="cb1-34"><a href="download-data.html#cb1-34"></a>SRR002037   ES_Zfx_3    ES_Zfx</span>
+<span id="cb1-35"><a href="download-data.html#cb1-35"></a>SRR002038   ES_Zfx_4    ES_Zfx</span>
+<span id="cb1-36"><a href="download-data.html#cb1-36"></a>SRR002019   ES_STAT3_1  ES_STAT3</span>
+<span id="cb1-37"><a href="download-data.html#cb1-37"></a>SRR002018   ES_STAT3_2  ES_STAT3</span>
+<span id="cb1-38"><a href="download-data.html#cb1-38"></a>SRR002017   ES_STAT3_3  ES_STAT3</span>
+<span id="cb1-39"><a href="download-data.html#cb1-39"></a>SRR002016   ES_STAT3_4  ES_STAT3</span>
+<span id="cb1-40"><a href="download-data.html#cb1-40"></a>SRR002000   ES_Klf4_1   ES_Klf4</span>
+<span id="cb1-41"><a href="download-data.html#cb1-41"></a>SRR002001   ES_Klf4_2   ES_Klf4</span>
+<span id="cb1-42"><a href="download-data.html#cb1-42"></a>SRR002002   ES_Klf4_3   ES_Klf4</span>
+<span id="cb1-43"><a href="download-data.html#cb1-43"></a>SRR002003   ES_Klf4_4   ES_Klf4</span>
+<span id="cb1-44"><a href="download-data.html#cb1-44"></a>SRR001992   ES_Esrrb_1  ES_Esrrb</span>
+<span id="cb1-45"><a href="download-data.html#cb1-45"></a>SRR001993   ES_Esrrb_2  ES_Esrrb</span>
+<span id="cb1-46"><a href="download-data.html#cb1-46"></a>SRR001994   ES_Esrrb_3  ES_Esrrb</span>
+<span id="cb1-47"><a href="download-data.html#cb1-47"></a>SRR001995   ES_Esrrb_4  ES_Esrrb</span>
+<span id="cb1-48"><a href="download-data.html#cb1-48"></a>SRR002039   ES_c-Myc_1  ES_c-Myc</span>
+<span id="cb1-49"><a href="download-data.html#cb1-49"></a>SRR002040   ES_c-Myc_2  ES_c-Myc</span>
+<span id="cb1-50"><a href="download-data.html#cb1-50"></a>SRR002041   ES_c-Myc_3  ES_c-Myc</span>
+<span id="cb1-51"><a href="download-data.html#cb1-51"></a>SRR002042   ES_c-Myc_4  ES_c-Myc</span>
+<span id="cb1-52"><a href="download-data.html#cb1-52"></a>SRR002046   ES_n-Myc_1  ES_n-Myc</span>
+<span id="cb1-53"><a href="download-data.html#cb1-53"></a>SRR002045   ES_n-Myc_2  ES_n-Myc</span>
+<span id="cb1-54"><a href="download-data.html#cb1-54"></a>SRR002044   ES_n-Myc_3  ES_n-Myc</span>
+<span id="cb1-55"><a href="download-data.html#cb1-55"></a>SRR002043   ES_n-Myc_4  ES_n-Myc</span>
+<span id="cb1-56"><a href="download-data.html#cb1-56"></a>SRR001996   ES_GFP_1    ES_GFP</span>
+<span id="cb1-57"><a href="download-data.html#cb1-57"></a>SRR001997   ES_GFP_2    ES_GFP</span>
+<span id="cb1-58"><a href="download-data.html#cb1-58"></a>SRR001998   ES_GFP_3    ES_GFP</span>
+<span id="cb1-59"><a href="download-data.html#cb1-59"></a>SRR001999   ES_GFP_4    ES_GFP</span>
+<span id="cb1-60"><a href="download-data.html#cb1-60"></a>SRR023866   ES_p300_1   ES_p300</span>
+<span id="cb1-61"><a href="download-data.html#cb1-61"></a>SRR023867   ES_p300_2   ES_p300</span>
+<span id="cb1-62"><a href="download-data.html#cb1-62"></a>SRR023868   ES_p300_3   ES_p300</span>
+<span id="cb1-63"><a href="download-data.html#cb1-63"></a>SRR023869   ES_p300_4   ES_p300</span>
+<span id="cb1-64"><a href="download-data.html#cb1-64"></a>SRR002027   ES_Suz12_1  ES_Suz12</span>
+<span id="cb1-65"><a href="download-data.html#cb1-65"></a>SRR002028   ES_Suz12_2  ES_Suz12</span>
+<span id="cb1-66"><a href="download-data.html#cb1-66"></a>SRR002029   ES_Suz12_3  ES_Suz12</span>
+<span id="cb1-67"><a href="download-data.html#cb1-67"></a>SRR002030   ES_Suz12_4  ES_Suz12</span>
+<span id="cb1-68"><a href="download-data.html#cb1-68"></a>END</span></code></pre></div>
+</div>
+<div id="download" class="section level3" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> download</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="download-data.html#cb2-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb2-2"><a href="download-data.html#cb2-2"></a><span class="kw">while</span> <span class="bu">read</span> <span class="va">srr</span> <span class="va">sampleName</span> <span class="va">experiment</span></span>
+<span id="cb2-3"><a href="download-data.html#cb2-3"></a><span class="kw">do</span></span>
+<span id="cb2-4"><a href="download-data.html#cb2-4"></a><span class="va">srrHead=(${srr:0:6})</span></span>
+<span id="cb2-5"><a href="download-data.html#cb2-5"></a><span class="va">ftp=$(</span><span class="bu">echo</span> <span class="st">&quot;ftp://ftp.sra.ebi.ac.uk/vol1/fastq/&quot;</span><span class="va">$srrHead</span><span class="st">&quot;/&quot;</span><span class="va">$srrTail</span><span class="st">&quot;/&quot;</span><span class="va">$srr</span><span class="st">&quot;/&quot;</span><span class="va">$srr</span><span class="st">&quot;.fastq.gz -O &quot;</span><span class="va">$sampleName</span><span class="st">&quot;.fastq.gz&quot;</span><span class="va">)</span></span>
+<span id="cb2-6"><a href="download-data.html#cb2-6"></a><span class="fu">wget</span> <span class="va">$ftp</span></span>
+<span id="cb2-7"><a href="download-data.html#cb2-7"></a><span class="kw">done</span> <span class="op">&lt;</span> <span class="ex">samFile.txt</span></span></code></pre></div>
+</div>
+</div>
+<div id="ulicutrun-1" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> uliCUT&amp;RUN</h2>
+<p>Hainer, S. J., et al. (2019). <a href="https://www.sciencedirect.com/science/article/pii/S0092867419302764#bib47">Profiling of pluripotency factors in single cells and early embryos</a>. Cell, 177(5),
+1319.</p>
+<p>For CUT&amp;RUN data, I’ll begin with the BED format file, which can be downloaded from the GEO (<a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111121">GEO accession: GSE111121</a>)</p>
+<p>In this project we are only interested in samples from blastocysts, and here are 28 samples in total.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-1">Table 3.1: </span>Experimental design in CUT &amp; RUN</caption>
+<thead>
+<tr class="header">
+<th align="left">cellType</th>
+<th align="left">Experiment</th>
+<th align="left">Antibody</th>
+<th align="right">Rep</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">blastocysts</td>
+<td align="left">None</td>
+<td align="left">NoAb</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">blastocysts</td>
+<td align="left">None</td>
+<td align="left">CTCF</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">blastocysts</td>
+<td align="left">EGFPKD</td>
+<td align="left">NoAb</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">blastocysts</td>
+<td align="left">EGFPKD</td>
+<td align="left">NANOG</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">blastocysts</td>
+<td align="left">Brg1</td>
+<td align="left">NoAb</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">blastocysts</td>
+<td align="left">Brg1</td>
+<td align="left">NANOG</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">blastocysts</td>
+<td align="left">Nanog</td>
+<td align="left">NoAb</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">blastocysts</td>
+<td align="left">Nanog</td>
+<td align="left">NANOG</td>
+<td align="right">4</td>
+</tr>
+</tbody>
+</table>
+<div id="samfile-1" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> samFile</h3>
+<p>Save as <code>samFile.txt</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="download-data.html#cb3-1"></a><span class="co"># create a file to store the acc number and experiment information</span></span>
+<span id="cb3-2"><a href="download-data.html#cb3-2"></a><span class="fu">cat</span> <span class="op">&lt;&lt;END</span>  <span class="op">&gt;</span> <span class="ex">samFile.txt</span></span>
+<span id="cb3-3"><a href="download-data.html#cb3-3"></a>GSM3022469  blast_NoAb_rep1 NoAb_1  NoAb</span>
+<span id="cb3-4"><a href="download-data.html#cb3-4"></a>GSM3022470  blast_NoAb_rep2 NoAb_2  NoAb</span>
+<span id="cb3-5"><a href="download-data.html#cb3-5"></a>GSM3022471  blast_CTCF_rep1 CTCF_1  CTCF</span>
+<span id="cb3-6"><a href="download-data.html#cb3-6"></a>GSM3022472  blast_CTCF_rep2 CTCF_2  CTCF</span>
+<span id="cb3-7"><a href="download-data.html#cb3-7"></a>GSM3022473  blast_EGFPKD_NoAb_rep1  EGFPKD_NoAb_1   EGFPKD_NoAb</span>
+<span id="cb3-8"><a href="download-data.html#cb3-8"></a>GSM3022474  blast_EGFPKD_NoAb_rep2  EGFPKD_NoAb_2   EGFPKD_NoAb</span>
+<span id="cb3-9"><a href="download-data.html#cb3-9"></a>GSM3022475  blast_EGFPKD_NoAb_rep3  EGFPKD_NoAb_3   EGFPKD_NoAb</span>
+<span id="cb3-10"><a href="download-data.html#cb3-10"></a>GSM3022476  blast_EGFPKD_NoAb_rep4  EGFPKD_NoAb_4   EGFPKD_NoAb</span>
+<span id="cb3-11"><a href="download-data.html#cb3-11"></a>GSM3022477  blast_EGFPKD_Nanog_rep1 EGFPKD_1    EGFPKD</span>
+<span id="cb3-12"><a href="download-data.html#cb3-12"></a>GSM3022478  blast_EGFPKD_Nanog_rep2 EGFPKD_2    EGFPKD</span>
+<span id="cb3-13"><a href="download-data.html#cb3-13"></a>GSM3022479  blast_EGFPKD_Nanog_rep3 EGFPKD_3    EGFPKD</span>
+<span id="cb3-14"><a href="download-data.html#cb3-14"></a>GSM3022480  blast_EGFPKD_Nanog_rep4 EGFPKD_4    EGFPKD</span>
+<span id="cb3-15"><a href="download-data.html#cb3-15"></a>GSM3022481  blast_Brg1KD_NoAb_rep1  Brg1KD_NoAb_1   Brg1KD_NoAb</span>
+<span id="cb3-16"><a href="download-data.html#cb3-16"></a>GSM3022482  blast_Brg1KD_NoAb_rep2  Brg1KD_NoAb_2   Brg1KD_NoAb</span>
+<span id="cb3-17"><a href="download-data.html#cb3-17"></a>GSM3022483  blast_Brg1KD_NoAb_rep3  Brg1KD_NoAb_3   Brg1KD_NoAb</span>
+<span id="cb3-18"><a href="download-data.html#cb3-18"></a>GSM3022484  blast_Brg1KD_NoAb_rep4  Brg1KD_NoAb_4   Brg1KD_NoAb</span>
+<span id="cb3-19"><a href="download-data.html#cb3-19"></a>GSM3022485  blast_Brg1KD_Nanog_rep1 Brg1KD_1    Brg1KD</span>
+<span id="cb3-20"><a href="download-data.html#cb3-20"></a>GSM3022486  blast_Brg1KD_Nanog_rep2 Brg1KD_2    Brg1KD</span>
+<span id="cb3-21"><a href="download-data.html#cb3-21"></a>GSM3022487  blast_Brg1KD_Nanog_rep3 Brg1KD_3    Brg1KD</span>
+<span id="cb3-22"><a href="download-data.html#cb3-22"></a>GSM3022488  blast_Brg1KD_Nanog_rep4 Brg1KD_4    Brg1KD</span>
+<span id="cb3-23"><a href="download-data.html#cb3-23"></a>GSM3022489  blast_NanogKD_NoAb_rep1 NanogKD_NoAb_1  NanogKD_NoAb</span>
+<span id="cb3-24"><a href="download-data.html#cb3-24"></a>GSM3022490  blast_NanogKD_NoAb_rep2 NanogKD_NoAb_2  NanogKD_NoAb</span>
+<span id="cb3-25"><a href="download-data.html#cb3-25"></a>GSM3022491  blast_NanogKD_NoAb_rep3 NanogKD_NoAb_3  NanogKD_NoAb</span>
+<span id="cb3-26"><a href="download-data.html#cb3-26"></a>GSM3022492  blast_NanogKD_NoAb_rep4 NanogKD_NoAb_4  NanogKD_NoAb</span>
+<span id="cb3-27"><a href="download-data.html#cb3-27"></a>GSM3022493  blast_NanogKD_Nanog_rep1    NanogKD_1   NanogKD</span>
+<span id="cb3-28"><a href="download-data.html#cb3-28"></a>GSM3022494  blast_NanogKD_Nanog_rep2    NanogKD_2   NanogKD</span>
+<span id="cb3-29"><a href="download-data.html#cb3-29"></a>GSM3022495  blast_NanogKD_Nanog_rep3    NanogKD_3   NanogKD</span>
+<span id="cb3-30"><a href="download-data.html#cb3-30"></a>GSM3022496  blast_NanogKD_Nanog_rep4    NanogKD_4   NanogKD</span>
+<span id="cb3-31"><a href="download-data.html#cb3-31"></a>END</span></code></pre></div>
+</div>
+<div id="download-1" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> download</h3>
+<p>save the below bash script as <code>downfile.sh</code>.</p>
+<p>The link looks like below:</p>
+<p><code>https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM3022nnn/GSM3022469/suppl/GSM3022469_blast_NoAb_1_1-120.ucsc.bedGraph.gz</code></p>
+<p><code>https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM3022nnn/GSM3022473/suppl/GSM3022473_blast_EGFPKD_NoAb_rep1_1-120.ucsc.bedGraph.gz</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="download-data.html#cb4-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb4-2"><a href="download-data.html#cb4-2"></a><span class="kw">while</span> <span class="bu">read</span> <span class="va">gsm</span> <span class="va">rep</span> <span class="va">sampleName</span> <span class="va">experiment</span></span>
+<span id="cb4-3"><a href="download-data.html#cb4-3"></a><span class="kw">do</span></span>
+<span id="cb4-4"><a href="download-data.html#cb4-4"></a><span class="va">gsmSub=(${gsm:0:7}</span>nnn<span class="va">)</span></span>
+<span id="cb4-5"><a href="download-data.html#cb4-5"></a><span class="co"># repHead=(${rep:0:$((${#rep}-4))})</span></span>
+<span id="cb4-6"><a href="download-data.html#cb4-6"></a><span class="co"># repTail=(${rep:$((${#rep}-1)):1})</span></span>
+<span id="cb4-7"><a href="download-data.html#cb4-7"></a><span class="co"># ftp=$(echo &quot;https://ftp.ncbi.nlm.nih.gov/geo/samples/&quot;$gsmSub&quot;/&quot;$gsm&quot;/suppl/&quot;$gsm&quot;_&quot;$repHead$repTail&quot;_1-120.ucsc.bedGraph.gz -O &quot;$sampleName&quot;.bedGraph.gz&quot;)</span></span>
+<span id="cb4-8"><a href="download-data.html#cb4-8"></a><span class="va">ftp=$(</span><span class="bu">echo</span> <span class="st">&quot;https://ftp.ncbi.nlm.nih.gov/geo/samples/&quot;</span><span class="va">$gsmSub</span><span class="st">&quot;/&quot;</span><span class="va">$gsm</span><span class="st">&quot;/suppl/&quot;</span><span class="va">$gsm</span><span class="st">&quot;_&quot;</span><span class="va">$rep</span><span class="st">&quot;_1-120.ucsc.bedGraph.gz -O &quot;</span><span class="va">$sampleName</span><span class="st">&quot;.bedGraph.gz&quot;</span><span class="va">)</span></span>
+<span id="cb4-9"><a href="download-data.html#cb4-9"></a><span class="fu">wget</span> <span class="va">$ftp</span></span>
+<span id="cb4-10"><a href="download-data.html#cb4-10"></a><span class="kw">done</span> <span class="op">&lt;</span> <span class="ex">samFile.txt</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="download-data.html#cb5-1"></a><span class="co"># download data</span></span>
+<span id="cb5-2"><a href="download-data.html#cb5-2"></a><span class="ex">./downfile.sh</span></span>
+<span id="cb5-3"><a href="download-data.html#cb5-3"></a></span>
+<span id="cb5-4"><a href="download-data.html#cb5-4"></a><span class="co"># check the number of .gz file (should be 28)</span></span>
+<span id="cb5-5"><a href="download-data.html#cb5-5"></a><span class="fu">ls</span> *.gz <span class="kw">|</span> <span class="fu">wc</span> -l</span></code></pre></div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ulicutrun-data-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-RawData.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
